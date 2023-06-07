@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../services/init_services.dart';
+import '../services/media_query.dart';
+
 class PlainScaffold extends StatelessWidget {
   const PlainScaffold({required this.widget, super.key});
 
@@ -7,13 +10,10 @@ class PlainScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mq = MediaQuery.of(context).size.width;
+    final pd = locator.get<ResponsiveDesign>().getPadding(context);
     return SafeArea(
       child: Scaffold(
-        body: Padding(
-            padding: const EdgeInsets.symmetric(
-                vertical:20, horizontal: 20),
-            child: widget),
+        body: Padding(padding: pd, child: widget),
       ),
     );
   }

@@ -1,8 +1,8 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 
 import 'controllers/application.dart';
 import 'navigation/route_generator.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get.dart';
 
 import 'services/init_services.dart';
@@ -22,12 +22,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Babble',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
       onGenerateRoute: RouteGenerator.generateRoute,
       navigatorKey: locator.get<RouteGenerator>().navigator,
+      themeMode: ThemeMode.dark,
     );
   }
 }
